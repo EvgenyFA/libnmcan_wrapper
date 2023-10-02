@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CanDeviceInfo.cs" />
+    <Compile Include="CanDeviceList.cs" />
     <Compile Include="LibnmcanWrapper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

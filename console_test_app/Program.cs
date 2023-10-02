@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 
 namespace console_test_app
 {
@@ -8,7 +9,13 @@ namespace console_test_app
         {
             try
             {
-                Console.WriteLine($"CanEnumerator(): {LibnmcanWrapper.CanEnumerate()}");
+                var deviceList = new CanDeviceList();
+                deviceList = Marshal.PtrToStructure<CanDeviceList>(LibnmcanWrapper.CanEnumerate());
+                Console.WriteLine($"CanEnumerator().count: {deviceList.count}");
+
+                //var device = new CanDeviceInfo();
+                //device = Marshal.PtrToStructure<CanDeviceInfo>(deviceList.device);
+                //Console.WriteLine($"CAN_device_info.device_name: {device.device_name}");
             }
             catch (Exception ex) 
             {
